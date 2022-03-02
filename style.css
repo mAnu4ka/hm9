@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
+
+body {
+    font-family: Gilroy;
+}
+
+center p {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 59px;
+    text-align: center;
+}
+
+center button {
+    background: #FFFFFF;
+    width: 254px;
+    padding: 16px 25px;
+    margin-top: 25px;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}
+
+center {
+    margin-bottom: 65px;
+}
+
+.mg-r {
+    margin-right: 8px;
+}
+
+.item {
+    width: 364px;
+}
+
+img {
+    padding: 19px 125px;
+}
+
+.imgg {
+    padding: 0 !important;
+    margin-left: 10px;
+}
+
+.buttom {
+    background-color: black;
+    padding: 30px;
+
+}
+
+.buttom h2 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+.buttom h3 {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(255, 255, 255, 0.56);
+    margin-top: 11px;
+    margin-bottom: 16px;
+}
+
+.img {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+}
+
+.defolt-with {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    grid-gap: 23px;
+    margin-bottom: 30px;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    grid-gap: 7px;
+}
+
+.info p {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+
+.greed {
+    margin: 21px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(345px, 1fr));
+    grid-gap: 16px;
+}
+
+.buttom button {
+    width: 100%;
+    padding: 17px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
+}
+
+.nice {
+    background: #1F86FF !important;
+    color: #FFFFFF;
+}
+h1{
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 59px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+h1 p{
+    margin-left: 12px;
+    margin-right: 12px;
+}
