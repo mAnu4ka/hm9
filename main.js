@@ -269,8 +269,6 @@ const CreatElement = () => {
         </div>
         `
     }
-}
-let funk = () => {
     let butons = document.querySelectorAll('.btn')
     let pp = document.querySelector('.pp')
     pp.innerText = cart.length
@@ -287,7 +285,6 @@ let funk = () => {
             // cart.push()
             console.log(idxs)
             console.log(remout);
-            CreatElement()
         }
         if (arr_products[idx].rating.count >= 10) {
             let img = document.createElement('img')
@@ -298,5 +295,4 @@ let funk = () => {
         }
     }
 }
-funk()
 CreatElement()
