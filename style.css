@@ -148,3 +148,17 @@ h1 p{
     margin-left: 12px;
     margin-right: 12px;
 }
+.pblok{
+    display: block;
+    width: 100%;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 17px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+.cls-1 {
+    fill: none;
+}
