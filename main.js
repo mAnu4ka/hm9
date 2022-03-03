@@ -219,28 +219,111 @@ let arr_products = [{
         "count": 2
     }
 }]
+// const newfunk = () =>{}
+let max = document.querySelectorAll('.all')
+
+const sord = (a)  => {
+    if (a == 'max') {
+        arr_products = arr_products.sort((a, b) => {
+            return a.price - b.price
+        })
+    }else if (a == 'min'){
+        arr_products = arr_products.sort((a, b) => {
+            return b.price - a.price
+        })
+    }else console.log('не работает');
+    CreatElement()
+}
+
+for (const keys of max) {
+    keys.onclick  = () =>{
+        let atrs = keys.getAttribute('what')
+        sord(atrs)
+    }
+}
+const counOFunction = () => {
+    let butlox = document.querySelectorAll('.btn')
+    for (const key of butlox) {
+        let id = key.getAttribute('id')
+        let idx = arr_products.indexOf(arr_products.filter(item => item.id == id)[0])
+        if (arr_products[idx].rating.count < 2 || arr_products[idx].rating.count > 0) {
+            let something = 20;
+            let total = arr_products[idx].price;
+            let percent = something * total / 100
+            arr_products[idx].price += percent
+            arr_products[idx].price = Math.round(arr_products[idx].price);
+        } else console.log('пока не работает');
+        if (arr_products[idx].rating.count <= 0) {
+            key.innerHTML = 'p'
+            key.innerText = 'твоара нет'
+            key.classList.add('pblok')
+            key.classList.remove('but')
+        }
+    }
+}
+
+const priceFunction = () => {
+    let butone = document.querySelectorAll('.btn')
+    let pricec = document.querySelector('.price')
+    let img = document.createElement('img')
+    img.setAttribute('src', './free-icon-discount-726476.png')
+    img.classList.add('imgg')
+    pricec.append(img)
+    for (const key of butone) {
+        let id = key.getAttribute('id')
+        let idx = arr_products.indexOf(arr_products.filter(item => item.id == id)[0])
+        if (arr_products[idx].rating.count >= 10) {
+            let moneyas = arr_products[idx].price;
+            let tallage = 50;
+            let result = moneyas / 100 * tallage;
+            let result2 = Math.round(result);
+            arr_products[idx].price = result2
+            key.append(img)
+        }else console.log(arr_products[idx].rating.count);
+    }
+    CreatElement()
+    finctions()
+}
+
+const finctions = () => {
+    let butons = document.querySelectorAll('.btn')
+    for (const key of butons) {
+        let id = key.getAttribute('id')
+        let idx = arr_products.indexOf(arr_products.filter(item => item.id == id)[0])
+        key.onclick = () => {
+            key.classList.add('nice')
+            key.innerText = 'Добавлено'
+            arr_products[idx].rating.count -= 1
+            cart.push(arr_products[idx])
+            CreatElement()
+        }
+    }
+    counOFunction()
+}
 let greed = document.querySelector('.greed')
 let cart = []
 const CreatElement = () => {
     greed.innerHTML = ''
+    let pp = document.querySelector('.pp')
+    pp.innerText = cart.length
     for (const item of arr_products) {
         greed.innerHTML += ` 
         <div class="item">
-            <div class="img">
-                <img src="./81fPKd-2AYL 1.png">
-            </div>
-            <div class="buttom defolt-with">
-                <h2>${item.title}</h2>
-                <h3>${item.description}</h3>
-                <div class="info">
-                    <div class="item-info">
-                        <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 1V15.6667" stroke="#1F86FF" stroke-linecap="round" stroke-linejoin="round" />
+        <div class="img">
+        <img src="./81fPKd-2AYL 1.png">
+        </div>
+        <div class="buttom defolt-with">
+        <h2>${item.title}</h2>
+        <h3>${item.description}</h3>
+        <div class="info">
+        <div class="item-info">
+        <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 1V15.6667" stroke="#1F86FF" stroke-linecap="round" stroke-linejoin="round" />
                             <path
                             d="M8.33333 3.66797H3.33333C2.71449 3.66797 2.121 3.9138 1.68342 4.35139C1.24583 4.78897 1 5.38246 1 6.0013C1 6.62014 1.24583 7.21363 1.68342 7.65122C2.121 8.0888 2.71449 8.33464 3.33333 8.33464H6.66667C7.28551 8.33464 7.879 8.58047 8.31658 9.01805C8.75417 9.45564 9 10.0491 9 10.668C9 11.2868 8.75417 11.8803 8.31658 12.3179C7.879 12.7555 7.28551 13.0013 6.66667 13.0013H1"
                             stroke="#1F86FF" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                        <p>${item.price}</p>
+                        <p class='price'>${item.price}</p>
                     </div>
                     <div class="item-info">
                         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -269,30 +352,10 @@ const CreatElement = () => {
         </div>
         `
     }
-    let butons = document.querySelectorAll('.btn')
-    let pp = document.querySelector('.pp')
-    pp.innerText = cart.length
-    for (const key of butons) {
-        let id = key.getAttribute('id')
-        let idx = arr_products.indexOf(arr_products.filter(item => item.id == id)[0])
-        let idxs = idx
-        idxs += 1
-        key.onclick = () => {
-            key.classList.add('nice')
-            key.innerText = 'Добавлено'
-            arr_products[idx].rating.count -= 1
-            let remout = arr_products.splice(idx, idxs)
-            // cart.push()
-            console.log(idxs)
-            console.log(remout);
-        }
-        if (arr_products[idx].rating.count >= 10) {
-            let img = document.createElement('img')
-            img.setAttribute('src', './free-icon-discount-726476.png')
-            img.classList.add('imgg')
-            arr_products[idx].price /= 50 %
-                key.append(img)
-        }
-    }
+    finctions()
 }
+
+finctions()
+counOFunction()
 CreatElement()
+priceFunction()
